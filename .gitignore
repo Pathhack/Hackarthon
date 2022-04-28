@@ -4,6 +4,20 @@
 *.ap_
 *.aab
 
+.gradle
+/local.properties
+
+# Android Studio
+*.iml
+.idea/*
+
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
 # Files for the ART/Dalvik VM
 *.dex
 
