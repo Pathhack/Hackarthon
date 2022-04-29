@@ -25,6 +25,5 @@ class Store : Activity() {
                 .setTitle(detailText.text)
             mBuilder.show()
         }
-
     }
 }
