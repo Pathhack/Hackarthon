@@ -38,14 +38,20 @@ fun ColumnScope.TaskButtons(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             DataCard(
+                modifier = Modifier.weight(1f),
                 icon = R.drawable.playing,
                 mainText = "놀기",
                 subText = "아이와 놀아주기",
                 data = "${TaskType.FOOD.reward} XP",
-                onClick = { viewModel.addTaskLog(TaskType.MILK) }
+                onClick = {
+                    viewModel.addTaskLog(TaskType.MILK)
+                }
             )
 
+            Spacer(Modifier.width(20.dp))
+
             DataCard(
+                modifier = Modifier.weight(1f),
                 icon = R.drawable.diaper,
                 mainText = "기저귀",
                 subText = "기저귀 갈아주기",
@@ -61,6 +67,7 @@ fun ColumnScope.TaskButtons(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             DataCard(
+                modifier = Modifier.weight(1f),
                 icon = R.drawable.sleeping,
                 mainText = "재우기",
                 subText = "아이 낮잠 재우기",
@@ -68,7 +75,10 @@ fun ColumnScope.TaskButtons(
                 onClick = { viewModel.addTaskLog(TaskType.SLEEP) }
             )
 
+            Spacer(Modifier.width(20.dp))
+
             DataCard(
+                modifier = Modifier.weight(1f),
                 icon = R.drawable.eusick,
                 mainText = "이유식",
                 subText = "아이 이유식 먹이기",
