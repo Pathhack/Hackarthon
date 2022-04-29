@@ -23,15 +23,15 @@ class UserPref @Inject constructor(@ApplicationContext context: Context){
         }
     }
 
-    fun getLoggedInUser() : Flow<User> {
-        return userStore.data.map { storeMap ->
-            val id = storeMap[LOGGED_IN_USER_ID] ?: User.GUEST.id
-            val email = storeMap[LOGGED_IN_USER_EMAIL] ?: User.GUEST.email
-            val name = storeMap[LOGGED_IN_USER_NAME] ?: User.GUEST.name
-
-            User(id = id, email = email, name = name)
-        }
-    }
+//    fun getLoggedInUser() : Flow<User> {
+//        return userStore.data.map { storeMap ->
+//            val id = storeMap[LOGGED_IN_USER_ID] ?: User.GUEST.id
+//            val email = storeMap[LOGGED_IN_USER_EMAIL] ?: User.GUEST.email
+//            val name = storeMap[LOGGED_IN_USER_NAME] ?: User.GUEST.name
+//
+//            User(id = id, email = email, name = name)
+//        }
+//    }
 
     // 키값 정의
     companion object {

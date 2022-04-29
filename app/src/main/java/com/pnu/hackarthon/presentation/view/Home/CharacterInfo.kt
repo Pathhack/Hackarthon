@@ -15,6 +15,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon.presentation.component.ColorBar
+import java.lang.Float.max
+import java.lang.Float.min
 
 @Composable
 fun CharacterInfo() {
@@ -29,6 +31,7 @@ fun ProgressBar(
     val modifier =
         if (width != null) Modifier.width(width)
         else Modifier.fillMaxWidth()
+    val coercedPercent = min(1f, percent)
 
     Row(
         modifier = modifier,
@@ -40,7 +43,7 @@ fun ProgressBar(
         )
         Spacer(Modifier.width(10.dp))
         Column {
-            ColorBar(height = 10.dp, percent = percent, color = color)
+            ColorBar(height = 10.dp, percent = coercedPercent, color = color)
             Row {
                 Text(modifier = Modifier.weight(1f), text = "0 / 25")
                 Text("Experience")
