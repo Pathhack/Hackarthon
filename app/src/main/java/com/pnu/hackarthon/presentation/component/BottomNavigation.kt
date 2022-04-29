@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon.presentation.currentRoute
 import com.pnu.hackarthon.presentation.navigation.Screen
+import com.pnu.hackarthon.presentation.view.Chart
 import com.pnu.hackarthon.presentation.view.Store
 import com.pnu.hackarthon.ui.theme.Purple200
 import com.pnu.hackarthon.ui.theme.Purple700
@@ -45,7 +46,10 @@ fun AppBottomNavigation(
                     tint = color
                 )
             },
-            onClick = { /*TODO*/ }
+            onClick = {
+                val intent = Intent(context, Chart::class.java)
+                context.startActivity(intent)
+            }
         )
         BottomNavigationItem(
             selected = (currentRoute == Screen.Home.route),

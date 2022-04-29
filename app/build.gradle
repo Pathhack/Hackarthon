@@ -6,6 +6,8 @@ plugins {
 }
 
 android {
+
+
     compileSdk 32
 
     defaultConfig {
@@ -112,6 +114,8 @@ dependencies {
     //Mockito-Kotlin
     testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
     testImplementation 'org.mockito:mockito-inline:4.4.0'
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
 
 kapt {
