@@ -10,20 +10,20 @@ import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class UserRepository @Inject constructor(
-    private val userPref: UserPref
-) {
-    private val scope = CoroutineScope(Dispatchers.IO)
-
-    fun getLoggedInUser() : User {
-        return runBlocking {
-            userPref.getLoggedInUser().first()
-        }
-    }
-    fun setLoggedInUser(user: User) {
-        scope.launch {
-            userPref.setLoggedInUser(user)
-        }
-    }
-}
+//@Singleton
+//class UserRepository @Inject constructor(
+//    private val userPref: UserPref
+//) {
+//    private val scope = CoroutineScope(Dispatchers.IO)
+//
+//    fun getLoggedInUser() : User {
+//        return runBlocking {
+//            userPref.getLoggedInUser().first()
+//        }
+//    }
+//    fun setLoggedInUser(user: User) {
+//        scope.launch {
+//            userPref.setLoggedInUser(user)
+//        }
+//    }
+//}

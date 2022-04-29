@@ -2,6 +2,7 @@ package com.pnu.hackarthon.presentation.view
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.BottomDrawer
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
@@ -13,10 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.pnu.hackarthon.domain.model.User
 import com.pnu.hackarthon.presentation.component.AppBottomNavigation
-import com.pnu.hackarthon.presentation.navigation.Screen
-import com.pnu.hackarthon.presentation.view.Home.CharacterArea
-import com.pnu.hackarthon.presentation.view.Home.ToDoArea
+import com.pnu.hackarthon.presentation.view.Home.*
 import com.pnu.hackarthon.presentation.viewmodel.HomeViewModel
 import com.pnu.hackarthon.ui.theme.HackarthonTheme
 
@@ -26,12 +26,16 @@ fun HomeScreen(
     homeViewModel: HomeViewModel,
 ) {
     Scaffold(
-        bottomBar = { AppBottomNavigation(navController) },
+        bottomBar = {
+            AppBottomNavigation(navController)
+        },
     ) { innerPadding ->
         HomeBackground {
             HomeContent(innerPadding) {
-                CharacterArea()
-                ToDoArea()
+                HeadBar()
+                CharacterImage()
+                CharacterInfo()
+                TaskButtons()
             }
         }
     }
