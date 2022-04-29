@@ -1,9 +1,9 @@
 package com.pnu.hackarthon.domain.model
 
-import java.util.*
+import java.time.LocalDateTime
 
 data class TaskLog(
     val id: Long,
     val title: String,
-    val date: Date? = null,
+    val date: LocalDateTime? = null,
 )

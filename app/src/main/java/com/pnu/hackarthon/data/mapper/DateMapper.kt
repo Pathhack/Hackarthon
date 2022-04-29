@@ -1,6 +1,8 @@
 package com.pnu.hackarthon.data.mapper
 
 import com.pnu.hackarthon.domain.interfaces.Mapper
+import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -10,20 +12,20 @@ class DateMapper @Inject constructor() {
     private val dateToLong = DateToLong()
     private val longToDate = LongToDate()
 
-    fun map(input: Date?): Long = dateToLong.map(input)
-    fun map(input: Long): Date? = longToDate.map(input)
+    fun map(input: LocalDateTime?): Long = dateToLong.map(input)
+    fun map(input: Long): LocalDateTime? = longToDate.map(input)
 }
 
-private class DateToLong: Mapper<Date?, Long> {
-    override fun map(input: Date?): Long {
+private class DateToLong: Mapper<LocalDateTime?, Long> {
+    override fun map(input: LocalDateTime?): Long {
         if (input == null) return -1L
-        return input.time
+        return input?.toEpochSecond(ZoneOffset.UTC)
     }
 }
 
-private class LongToDate: Mapper<Long, Date?> {
-    override fun map(input: Long): Date? {
+private class LongToDate: Mapper<Long, LocalDateTime?> {
+    override fun map(input: Long): LocalDateTime? {
         if (input == -1L) return null
-        return Date(input)
+        return LocalDateTime.ofEpochSecond(input, 0, ZoneOffset.UTC)
     }
 }
