@@ -4,4 +4,5 @@ package com.pnu.hackarthon.presentation.navigation
 sealed class Screen(val route: String) {
     object Splash : Screen("screen_splash")
     object Home : Screen("screen_home")
+    object TaskLog: Screen("screen_tasklog")
 }

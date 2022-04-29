@@ -47,7 +47,7 @@ fun AppBottomNavigation(
                 )
             },
             onClick = {
-                val intent = Intent(context, Chart::class.java)
+                val intent = Intent(context, Store::class.java)
                 context.startActivity(intent)
             }
         )
@@ -64,7 +64,9 @@ fun AppBottomNavigation(
                     tint = color
                 )
             },
-            onClick = { /*TODO*/ }
+            onClick = {
+                navController.navigate(Screen.Home.route)
+            }
         )
         BottomNavigationItem(
             selected = currentRoute == "추가바람!!",
@@ -80,8 +82,7 @@ fun AppBottomNavigation(
                 )
             },
             onClick = {
-                val intent = Intent(context, Store::class.java)
-                context.startActivity(intent)
+                navController.navigate(Screen.TaskLog.route)
             }
         )
     }
