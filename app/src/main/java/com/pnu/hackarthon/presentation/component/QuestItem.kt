@@ -2,7 +2,6 @@ package com.pnu.hackarthon.presentation.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Card
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -12,10 +11,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pnu.hackarthon._constant.UIConstant
-import com.pnu.hackarthon.domain.model.Quest
+import com.pnu.hackarthon.domain.model.Task
 
 @Composable
-fun QuestItem(quest: Quest) {
+fun QuestItem(quest: Task) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -50,6 +49,6 @@ fun QuestItem(quest: Quest) {
 @Preview(showSystemUi = true)
 @Composable
 fun QuestItemPreview() {
-    val quest = Quest(10, "분유주기", "분유를 주세요", 50f)
+    val quest = Task(10, "분유주기", "분유를 주세요", 50f)
     QuestItem(quest = quest)
 }

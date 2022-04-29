@@ -1,10 +1,10 @@
 package com.pnu.hackarthon.presentation.viewmodel
 
-import androidx.compose.runtime.mutableStateOf
-import com.pnu.hackarthon.presentation.model.UserView
+import com.pnu.hackarthon.domain.repository.TaskLogRepository
+import javax.inject.Inject
 
-class HomeViewModel(
-
+class HomeViewModel @Inject constructor(
+    private val logRepository: TaskLogRepository
 ) {
 
 }

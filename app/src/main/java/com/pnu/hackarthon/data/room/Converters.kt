@@ -13,5 +13,5 @@ class Converters @Inject constructor(
     @TypeConverter
     fun fromDate(date: Date): Long = dateMapper.map(date)
     @TypeConverter
-    fun toDate(long: Long): Date = dateMapper.map(long)
+    fun toDate(long: Long): Date? = dateMapper.map(long)
 }
