@@ -5,12 +5,13 @@ import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.pnu.hackarthon.R
 
 class Store : Activity() {
 
-    private val detailBtn : Button by lazy { findViewById(R.id.couponImageView) }
+    private val detailBtn : ImageView by lazy { findViewById(R.id.couponImageView) }
     private val detailText : TextView by lazy { findViewById(R.id.couponTextView) }
 
     override fun onCreate(savedInstanceState: Bundle?) {

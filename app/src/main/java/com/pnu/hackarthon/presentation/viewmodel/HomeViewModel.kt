@@ -28,6 +28,5 @@ class HomeViewModel @Inject constructor(
         CoroutineScope(Dispatchers.IO).launch {
             logRepository.insert(taskLog)
         }
-
     }
 }
