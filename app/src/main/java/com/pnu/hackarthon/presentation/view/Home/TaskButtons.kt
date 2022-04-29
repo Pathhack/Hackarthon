@@ -14,11 +14,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.pnu.hackarthon._constant.UIConstant
+import com.pnu.hackarthon._enums.TaskType
 import com.pnu.hackarthon.domain.model.User
+import com.pnu.hackarthon.presentation.viewmodel.HomeViewModel
 import com.pnu.hackarthon.ui.theme.Purple200
 
 @Composable
-fun ColumnScope.TaskButtons() {
+fun ColumnScope.TaskButtons(
+    viewModel: HomeViewModel
+) {
     val itemWidth = UIConstant.WIDTH_ITEM_MEDIUM
     Spacer(Modifier.height(30.dp))
     Box(
@@ -31,7 +35,7 @@ fun ColumnScope.TaskButtons() {
                     .weight(1f)
                     .height(50.dp)
                     .background(Purple200)
-                    .clickable { User.gainXP(30f) },
+                    .clickable { viewModel.addTaskLog(TaskType.MILK) },
                 contentAlignment = Alignment.Center
             ) {
                 Text(
@@ -45,7 +49,7 @@ fun ColumnScope.TaskButtons() {
                     .weight(1f)
                     .height(50.dp)
                     .background(Purple200)
-                    .clickable {  },
+                    .clickable { viewModel.addTaskLog(TaskType.DIAPER) },
                 contentAlignment = Alignment.Center
 
             ) {
@@ -60,7 +64,7 @@ fun ColumnScope.TaskButtons() {
                     .weight(1f)
                     .height(50.dp)
                     .background(Purple200)
-                    .clickable {  },
+                    .clickable { viewModel.addTaskLog(TaskType.SLEEP) },
                 contentAlignment = Alignment.Center
 
             ) {
@@ -75,7 +79,7 @@ fun ColumnScope.TaskButtons() {
                     .weight(1f)
                     .height(50.dp)
                     .background(Purple200)
-                    .clickable {  },
+                    .clickable { viewModel.addTaskLog(TaskType.FOOD) },
                 contentAlignment = Alignment.Center
 
             ) {

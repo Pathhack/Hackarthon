@@ -12,9 +12,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.pnu.hackarthon.domain.model.User
+import com.pnu.hackarthon.domain.repository.TaskLogRepository
 import com.pnu.hackarthon.presentation.component.AppBottomNavigation
 import com.pnu.hackarthon.presentation.view.Home.*
 import com.pnu.hackarthon.presentation.viewmodel.HomeViewModel
@@ -35,7 +37,7 @@ fun HomeScreen(
                 HeadBar()
                 CharacterImage()
                 CharacterInfo()
-                TaskButtons()
+                TaskButtons(homeViewModel)
             }
         }
     }
@@ -72,8 +74,5 @@ private fun HomeContent(
 @Composable
 fun HomeScreenPreview() {
     HackarthonTheme {
-        val navController = rememberNavController()
-        val viewModel = HomeViewModel()
-        HomeScreen(navController = navController, viewModel)
     }
 }

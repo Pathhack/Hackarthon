@@ -1,6 +1,7 @@
 package com.pnu.hackarthon.presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -18,7 +19,7 @@ fun NavGraph(navController: NavHostController) {
             SplashScreen(navController = navController)
         }
         composable(route = Screen.Home.route) {
-            val viewModel = HomeViewModel()
+            val viewModel = hiltViewModel<HomeViewModel>()
             HomeScreen(navController = navController, viewModel)
         }
     }

@@ -7,6 +7,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.pnu.hackarthon.data.room.dao.ProfileDao
+import com.pnu.hackarthon.data.room.dao.TaskLogDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +18,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DatabaseModule {
+
+    @Singleton
+    @Provides
+    fun providesTaskLogDao(database: Database) : TaskLogDao
+            = database.taskLogDao()
+
     @Singleton
     @Provides
     fun providesProfileDao(database: Database) : ProfileDao
