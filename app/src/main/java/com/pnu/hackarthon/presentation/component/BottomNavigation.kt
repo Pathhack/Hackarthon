@@ -24,6 +24,7 @@ import com.pnu.hackarthon.presentation.view.Chart
 import com.pnu.hackarthon.presentation.view.Store
 import com.pnu.hackarthon.ui.theme.Purple200
 import com.pnu.hackarthon.ui.theme.Purple700
+import com.pnu.hackarthon.ui.theme.Yellow200
 
 @Composable
 fun AppBottomNavigation(
@@ -40,7 +41,7 @@ fun AppBottomNavigation(
             icon = {
                 val color =
                     if (currentRoute == "추가바람") Purple700
-                    else Purple200
+                    else Color.Black
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
                     painter = painterResource(id = R.drawable.ic_baseline_storefront_24),
@@ -58,7 +59,7 @@ fun AppBottomNavigation(
             icon = {
                 val color =
                     if (currentRoute == "추가바람") Purple700
-                    else Purple200
+                    else Color.Black
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
                     painter = painterResource(id = R.drawable.ic_baseline_home_24),
@@ -75,7 +76,7 @@ fun AppBottomNavigation(
             icon = {
                 val color =
                     if (currentRoute == "추가바람") Purple700
-                    else Purple200
+                    else Color.Black
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
                     painter = painterResource(id = R.drawable.ic_baseline_history_24),

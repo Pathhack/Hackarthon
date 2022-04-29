@@ -20,6 +20,7 @@ import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon._enums.TaskType
 import com.pnu.hackarthon.domain.model.User
 import com.pnu.hackarthon.domain.model.User.id
+import com.pnu.hackarthon.presentation.component.DataCard
 import com.pnu.hackarthon.presentation.viewmodel.HomeViewModel
 import com.pnu.hackarthon.ui.theme.Purple200
 
@@ -29,67 +30,72 @@ fun ColumnScope.TaskButtons(
 ) {
     val itemWidth = UIConstant.WIDTH_ITEM_MEDIUM
     Spacer(Modifier.height(30.dp))
-    Box(
+    Column(
         modifier = Modifier.weight(1f),
-        contentAlignment = Alignment.Center
     ) {
-        Row(Modifier.height(70.dp)) {
-            IconButton(
-                modifier = Modifier
-                    .weight(1f)
-                    .clip(RoundedCornerShape(50)),
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            DataCard(
+                icon = R.drawable.playing,
+                mainText = "놀기",
+                subText = "아이와 놀아주기",
+                data = "${TaskType.FOOD.reward} XP",
                 onClick = { viewModel.addTaskLog(TaskType.MILK) }
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(70.dp),
-                    painter = painterResource(id = R.drawable.playing),
-                    contentDescription = "",
-                    contentScale = ContentScale.Inside
-                )
-            }
-            IconButton(
-                modifier = Modifier
-                    .weight(1f)
-                    .clip(RoundedCornerShape(50)),
+            )
+
+            DataCard(
+                icon = R.drawable.diaper,
+                mainText = "기저귀",
+                subText = "기저귀 갈아주기",
+                data = "${TaskType.DIAPER.reward} XP",
                 onClick = { viewModel.addTaskLog(TaskType.DIAPER) }
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(70.dp),
-                    painter = painterResource(id = R.drawable.diaper),
-                    contentDescription = "",
-                    contentScale = ContentScale.Inside
-                )
-            }
-            IconButton(
-                modifier = Modifier
-                    .weight(1f)
-                    .clip(RoundedCornerShape(50)),
-                onClick = { viewModel.addTaskLog(TaskType.SLEEP) }
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(70.dp),
-                    painter = painterResource(id = R.drawable.sleeping),
-                    contentDescription = "",
-                    contentScale = ContentScale.Inside
-                )
-            }
-            IconButton(
-                modifier = Modifier
-                    .weight(1f)
-                    .clip(RoundedCornerShape(50)),
-                onClick = { viewModel.addTaskLog(TaskType.FOOD) }
-            ) {
-                Image(
-                    modifier = Modifier
-                        .size(70.dp),
-                    painter = painterResource(id = R.drawable.eusick),
-                    contentDescription = "",
-                    contentScale = ContentScale.Inside
-                )
-            }
+            )
         }
+
+        Spacer(Modifier.height(30.dp))
+
+        Row(
+            Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            DataCard(
+                icon = R.drawable.sleeping,
+                mainText = "재우기",
+                subText = "아이 낮잠 재우기",
+                data = "${TaskType.SLEEP.reward} XP",
+                onClick = { viewModel.addTaskLog(TaskType.SLEEP) }
+            )
+
+            DataCard(
+                icon = R.drawable.eusick,
+                mainText = "이유식",
+                subText = "아이 이유식 먹이기",
+                data = "${TaskType.FOOD.reward} XP",
+                onClick = { viewModel.addTaskLog(TaskType.FOOD) }
+            )
+        }
+    }
+}
+
+@Composable
+private fun RowScope.IconButton(
+    resId: Int,
+    onClick: () -> Unit,
+) {
+    IconButton(
+        modifier = Modifier
+            .weight(1f)
+            .clip(RoundedCornerShape(50)),
+        onClick = onClick
+    ) {
+        Image(
+            modifier = Modifier
+                .size(65.dp),
+            painter = painterResource(id = resId),
+            contentDescription = "",
+            contentScale = ContentScale.Inside
+        )
     }
 }

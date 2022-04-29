@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.pnu.hackarthon.ui.theme.Purple200
+import com.pnu.hackarthon.ui.theme.Yellow700
 
 @Composable
 fun TopButtons() {
@@ -21,6 +22,7 @@ fun TopButtons() {
         Row {
             Box(
                 modifier = Modifier
+                    .background(Yellow700)
                     .weight(1f)
                     .fillMaxHeight()
                     .clickable {  },
@@ -31,6 +33,7 @@ fun TopButtons() {
             Spacer(Modifier.width(1.dp).fillMaxHeight().background(Color.White))
             Box(
                 modifier = Modifier
+                    .background(Yellow700)
                     .weight(1f)
                     .fillMaxHeight()
                     .clickable {  },
@@ -41,6 +44,7 @@ fun TopButtons() {
             Spacer(Modifier.width(1.dp).fillMaxHeight().background(Color.White))
             Box(
                 modifier = Modifier
+                    .background(Yellow700)
                     .weight(1f)
                     .fillMaxHeight()
                     .clickable {  },

@@ -8,6 +8,7 @@ object UIConstant {
     val SIZE_ICON_LARGE = 40.dp
     val WIDTH_ITEM_MEDIUM = 100.dp
     val HEIGHT_BOTTOM_BAR = 60.dp
-    val HEIGHT_QUEST_ITEM = 50.dp
     val COLOR_PROGRESS_BG = Color(0xFFE5DDEE)
+    val COLOR_PROGRESS_MAIN = Color(0xFFFFD608)
+    val COLOR_SOFT_BG = Color(0xFFFAFAE2)
 }

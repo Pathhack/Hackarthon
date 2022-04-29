@@ -10,6 +10,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.time.LocalDateTime
+import java.time.ZoneOffset
 import java.util.*
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class HomeViewModel @Inject constructor(
         val taskLog = TaskLog(
             id = Random().nextLong(),
             title = type.title,
-            date = LocalDateTime.now()
+            date = LocalDateTime.now(ZoneOffset.of("+09:00"))
         )
         User.gainXP(type.reward)
 

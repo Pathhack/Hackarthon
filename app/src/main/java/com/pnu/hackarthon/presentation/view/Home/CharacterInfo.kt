@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon.domain.model.User
 import com.pnu.hackarthon.presentation.component.ColorBar
 import java.lang.Float.max
@@ -22,7 +23,11 @@ fun CharacterInfo() {
     val xp = User.userXP.value
     val requiredXp = User.state.value.getRequiredXP()
 
-    ProgressBar(value = xp, limit = requiredXp, color = Color.Red)
+    ProgressBar(
+        value = xp,
+        limit = requiredXp,
+        color = UIConstant.COLOR_PROGRESS_MAIN
+    )
 }
 
 @Composable
