@@ -25,10 +25,12 @@ fun HomeScreen(
             Text(text = "홈 화면")
             Button(
                 onClick = {
-                    navController.navigate(route= Screen.Splash.route)
+                    navController.navigate(route= Screen.Splash.route) {
+                        launchSingleTop = true
+                    }
                 }
             ) {
-                Text(text = "네이버 지도 띄우기")
+                Text(text = "스플래시 화면으로!")
             }
         }
     }

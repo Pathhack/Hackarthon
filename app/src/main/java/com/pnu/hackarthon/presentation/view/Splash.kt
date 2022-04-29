@@ -25,11 +25,11 @@ fun SplashScreen(
             Button(
                 onClick = {
                     navController.navigate(route= Screen.Home.route) {
-                        popUpTo(Screen.Splash.route)
+                        launchSingleTop = true
                     }
                 }
             ) {
-                Text(text = "네이버 지도 띄우기")
+                Text(text = "홈 화면으로!")
             }
         }
     }
