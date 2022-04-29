@@ -1,17 +1,19 @@
 package com.pnu.hackarthon.domain.model
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import com.pnu.hackarthon._enums.BabyState
 
 /** 로그인한 유저를 표현하는 클래스 */
-class User(
-    val id: String,
-    val email: String,
-    val name: String,
-    var userXP: Float,
-    var userCoin: Float,
-    var state: BabyState,
-) {
-    fun isGuest() : Boolean = (this == GUEST)
+object User{
+    const val id: String = ""
+    const val email: String = ""
+    const val name: String = "GUSET"
+    private var userXP: MutableState<Float> = mutableStateOf(0F)
+    private var userCoin: MutableState<Float> = mutableStateOf(0F)
+    private var state: MutableState<BabyState> = mutableStateOf(BabyState.BABY_0)
+
+    fun isGuest() : Boolean = (true)
 
     override fun toString(): String {
         return "User(id: $id, email: $email, name: $name"
@@ -30,29 +32,26 @@ class User(
     }
 
     fun gainXP(reward : Float) {
-        this.userXP += reward
+        this.userXP.value = this.userXP.value + reward
         checkXP()
     }
 
     private fun checkXP() {
-        if(userXP >= state.getRequiredXP())
+        if(userXP.value >= state.value.getRequiredXP())
             getEvolve()
     }
 
     private fun getEvolve() {
-        when(state) {
-            BabyState.BABY_0 -> state = BabyState.BABY_1
-            BabyState.BABY_1 -> state = BabyState.BABY_2
-            BabyState.BABY_2 -> state = BabyState.BABY_3
-            BabyState.BABY_3 -> state = BabyState.BABY_4
+        when(state.value) {
+            BabyState.BABY_0 -> state.value = BabyState.BABY_1
+            BabyState.BABY_1 -> state.value = BabyState.BABY_2
+            BabyState.BABY_2 -> state.value = BabyState.BABY_3
+            BabyState.BABY_3 -> state.value = BabyState.BABY_4
         }
     }
 
     fun gainCoin(reward : Float) {
-        this.userCoin += reward
+        this.userCoin.value = this.userCoin.value + reward
     }
 
-    companion object {
-        val GUEST = User("Guest", "", "", 0F, 0F, BabyState.BABY_0)
-    }
 }
