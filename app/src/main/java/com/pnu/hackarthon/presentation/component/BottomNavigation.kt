@@ -14,7 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
+import com.pnu.hackarthon.R
 import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon.presentation.currentRoute
 import com.pnu.hackarthon.presentation.navigation.Screen
@@ -41,7 +43,7 @@ fun AppBottomNavigation(
                     else Purple200
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
-                    imageVector = Icons.Default.AccountBox,
+                    painter = painterResource(id = R.drawable.ic_baseline_storefront_24),
                     contentDescription = "",
                     tint = color
                 )
@@ -59,7 +61,7 @@ fun AppBottomNavigation(
                     else Purple200
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
-                    imageVector = Icons.Default.Call,
+                    painter = painterResource(id = R.drawable.ic_baseline_home_24),
                     contentDescription = "",
                     tint = color
                 )
@@ -76,7 +78,7 @@ fun AppBottomNavigation(
                     else Purple200
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
-                    imageVector = Icons.Default.DateRange,
+                    painter = painterResource(id = R.drawable.ic_baseline_history_24),
                     contentDescription = "",
                     tint = color
                 )
