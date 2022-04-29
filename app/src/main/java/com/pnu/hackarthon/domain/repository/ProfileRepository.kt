@@ -2,8 +2,9 @@ package com.pnu.hackarthon.domain.repository
 
 import com.pnu.hackarthon.data.room.dao.ProfileDao
 import com.pnu.hackarthon.domain.mapper.ProfileMapper
+import com.pnu.hackarthon.domain.model.Profile
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 

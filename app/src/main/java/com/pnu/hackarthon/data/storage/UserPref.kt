@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.pnu.hackarthon.domain.model.User
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -15,7 +16,7 @@ class UserPref @Inject constructor(@ApplicationContext context: Context){
     private val userStore = context.dataStore
 
     suspend fun setLoggedInUser(user: User) {
-        linkItStore.edit { storeMap ->
+        userStore.edit { storeMap ->
             storeMap[LOGGED_IN_USER_ID] = user.id
             storeMap[LOGGED_IN_USER_EMAIL] = user.email
             storeMap[LOGGED_IN_USER_NAME] = user.name
@@ -23,7 +24,7 @@ class UserPref @Inject constructor(@ApplicationContext context: Context){
     }
 
     fun getLoggedInUser() : Flow<User> {
-        return linkItStore.data.map { storeMap ->
+        return userStore.data.map { storeMap ->
             val id = storeMap[LOGGED_IN_USER_ID] ?: User.GUEST.id
             val email = storeMap[LOGGED_IN_USER_EMAIL] ?: User.GUEST.email
             val name = storeMap[LOGGED_IN_USER_NAME] ?: User.GUEST.name
