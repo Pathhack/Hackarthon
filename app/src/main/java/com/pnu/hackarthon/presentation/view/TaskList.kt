@@ -12,6 +12,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.pnu.hackarthon.presentation.component.AppBottomNavigation
+import com.pnu.hackarthon.presentation.view.TaskList.StatisticButton
 import com.pnu.hackarthon.presentation.view.TaskList.TaskLogList
 import com.pnu.hackarthon.presentation.view.TaskList.TopButtons
 import com.pnu.hackarthon.presentation.viewmodel.TaskLogViewModel
@@ -23,10 +25,15 @@ fun TaskListScreen(
 ) {
     val scrollState = rememberLazyListState()
 
-    Scaffold() {
+    Scaffold(
+        bottomBar = {
+            AppBottomNavigation(navController = navController)
+        }
+    ) {
         TaskListBackground {
             TaskListContent(it) {
                 TopButtons()
+                StatisticButton()
                 TaskLogList(scrollState = scrollState, viewModel = viewModel)
             }
         }

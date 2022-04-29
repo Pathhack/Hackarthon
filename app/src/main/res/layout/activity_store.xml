@@ -98,7 +98,7 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/random_image_01"/>
+                            android:background="@drawable/s2"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -239,7 +239,7 @@
                             android:layout_width="70dp"
                             android:layout_height="70dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/random_image_01"/>
+                            android:background="@drawable/s2"/>
 
                         <TextView
                             android:layout_width="wrap_content"
