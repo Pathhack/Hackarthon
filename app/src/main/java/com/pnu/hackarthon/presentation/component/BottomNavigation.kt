@@ -7,6 +7,8 @@ import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountBox
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
@@ -37,7 +39,7 @@ fun AppBottomNavigation(
             icon = {
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
-                    imageVector = Icons.Default.AccountBox,
+                    imageVector = Icons.Default.Call,
                     contentDescription = ""
                 )
             },
@@ -48,7 +50,7 @@ fun AppBottomNavigation(
             icon = {
                 Icon(
                     modifier = Modifier.size(UIConstant.SIZE_ICON_LARGE),
-                    imageVector = Icons.Default.AccountBox,
+                    imageVector = Icons.Default.DateRange,
                     contentDescription = ""
                 )
             },
