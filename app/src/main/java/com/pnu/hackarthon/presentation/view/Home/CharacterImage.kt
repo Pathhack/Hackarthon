@@ -1,5 +1,6 @@
 package com.pnu.hackarthon.presentation.view.Home
 
+import androidx.compose.animation.Crossfade
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import com.pnu.hackarthon.domain.model.User
 @Composable
 fun CharacterImage() {
     val imageId = User.state.value.imageId
+
 
     Box(
         modifier = Modifier.fillMaxWidth(),

@@ -21,11 +21,12 @@ import java.lang.Float.min
 @Composable
 fun CharacterInfo() {
     val xp = User.userXP.value
+    val prevXpLimit = User.state.value.prev()?.getRequiredXP() ?: 0F
     val requiredXp = User.state.value.getRequiredXP()
 
     ProgressBar(
-        value = xp,
-        limit = requiredXp,
+        value = xp - prevXpLimit,
+        limit = requiredXp - prevXpLimit,
         color = UIConstant.COLOR_PROGRESS_MAIN
     )
 }

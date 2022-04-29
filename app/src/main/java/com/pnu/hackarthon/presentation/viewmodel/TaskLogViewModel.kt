@@ -21,7 +21,7 @@ class TaskLogViewModel @Inject constructor(
     init {
         CoroutineScope(Dispatchers.IO).launch {
             repositry.getAllTasks().collect() {
-                taskLogs.value = it.sortedBy { it.date }
+                taskLogs.value = it.sortedByDescending { it.date }
             }
         }
     }
