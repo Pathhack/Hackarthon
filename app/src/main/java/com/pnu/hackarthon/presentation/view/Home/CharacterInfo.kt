@@ -1,6 +1,5 @@
 package com.pnu.hackarthon.presentation.view.Home
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -13,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon.domain.model.User
 import com.pnu.hackarthon.presentation.component.ColorBar
 import java.lang.Float.max
@@ -54,7 +52,7 @@ fun ProgressBar(
                     modifier = Modifier.weight(1f),
                     text = "${value.toInt()} / ${limit.toInt()}"
                 )
-                Text("Experience")
+                Text("Lv.${User.state.value.level}")
             }
         }
     }
