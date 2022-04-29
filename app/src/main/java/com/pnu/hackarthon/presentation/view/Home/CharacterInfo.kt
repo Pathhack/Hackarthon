@@ -14,24 +14,29 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.pnu.hackarthon._constant.UIConstant
+import com.pnu.hackarthon.domain.model.User
 import com.pnu.hackarthon.presentation.component.ColorBar
 import java.lang.Float.max
 import java.lang.Float.min
 
 @Composable
 fun CharacterInfo() {
-    ProgressBar(percent = 0.6f, color = Color.Red)
+    val xp = User.userXP.value
+    val requiredXp = User.state.value.getRequiredXP()
+
+    ProgressBar(value = xp, limit = requiredXp, color = Color.Red)
 }
 
 @Composable
 fun ProgressBar(
     color: Color,
-    percent: Float,
+    value: Float,
+    limit: Float,
     width: Dp? = null) {
     val modifier =
         if (width != null) Modifier.width(width)
         else Modifier.fillMaxWidth()
-    val coercedPercent = min(1f, percent)
+    val coercedPercent = min(1f, value / limit)
 
     Row(
         modifier = modifier,
@@ -45,7 +50,10 @@ fun ProgressBar(
         Column {
             ColorBar(height = 10.dp, percent = coercedPercent, color = color)
             Row {
-                Text(modifier = Modifier.weight(1f), text = "0 / 25")
+                Text(
+                    modifier = Modifier.weight(1f),
+                    text = "${value.toInt()} / ${limit.toInt()}"
+                )
                 Text("Experience")
             }
         }

@@ -9,9 +9,9 @@ object User{
     const val id: String = ""
     const val email: String = ""
     const val name: String = "GUSET"
-    private var userXP: MutableState<Float> = mutableStateOf(0F)
+    val userXP: MutableState<Float> = mutableStateOf(0F)
     private var userCoin: MutableState<Float> = mutableStateOf(0F)
-    private var state: MutableState<BabyState> = mutableStateOf(BabyState.BABY_0)
+    val state: MutableState<BabyState> = mutableStateOf(BabyState.BABY_0)
 
     fun isGuest() : Boolean = (true)
 

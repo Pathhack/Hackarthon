@@ -23,17 +23,21 @@ fun ColorBar(
                 .background(UIConstant.COLOR_PROGRESS_BG)
         )
         Row {
-            Spacer(
-                modifier = Modifier
-                    .height(height)
-                    .weight(percent)
-                    .background(color)
-            )
-            Spacer(
-                modifier = Modifier
-                    .height(height)
-                    .weight(1-percent)
-            )
+            if (percent > 0) {
+                Spacer(
+                    modifier = Modifier
+                        .height(height)
+                        .weight(percent)
+                        .background(color)
+                )
+            }
+            if (percent < 1) {
+                Spacer(
+                    modifier = Modifier
+                        .height(height)
+                        .weight(1-percent)
+                )
+            }
         }
     }
 }
