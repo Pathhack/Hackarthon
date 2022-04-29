@@ -6,13 +6,6 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Composable
 fun TaskListScreen() {
-    Scaffold(
-        topBar = {
-            
-        }
-    ) {
-
-    }
 }
 
 @Preview(showSystemUi = true)
