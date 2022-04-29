@@ -1,21 +1,25 @@
 package com.pnu.hackarthon.presentation.view.Home
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.pnu.hackarthon.R
 import com.pnu.hackarthon._constant.UIConstant
 import com.pnu.hackarthon._enums.TaskType
 import com.pnu.hackarthon.domain.model.User
+import com.pnu.hackarthon.domain.model.User.id
 import com.pnu.hackarthon.presentation.viewmodel.HomeViewModel
 import com.pnu.hackarthon.ui.theme.Purple200
 
@@ -29,64 +33,61 @@ fun ColumnScope.TaskButtons(
         modifier = Modifier.weight(1f),
         contentAlignment = Alignment.Center
     ) {
-        Row(Modifier.height(80.dp)) {
-            Box(
+        Row(Modifier.height(70.dp)) {
+            IconButton(
                 modifier = Modifier
                     .weight(1f)
-                    .height(50.dp)
-                    .background(Purple200)
-                    .clickable { viewModel.addTaskLog(TaskType.MILK) },
-                contentAlignment = Alignment.Center
+                    .clip(RoundedCornerShape(50)),
+                onClick = { viewModel.addTaskLog(TaskType.MILK) }
             ) {
-                Text(
-                    text = "분유",
-                    textAlign = TextAlign.Center,
-                    color = Color.Black
+                Image(
+                    modifier = Modifier
+                        .size(70.dp),
+                    painter = painterResource(id = R.drawable.playing),
+                    contentDescription = "",
+                    contentScale = ContentScale.Inside
                 )
             }
-            Box(
+            IconButton(
                 modifier = Modifier
                     .weight(1f)
-                    .height(50.dp)
-                    .background(Purple200)
-                    .clickable { viewModel.addTaskLog(TaskType.DIAPER) },
-                contentAlignment = Alignment.Center
-
+                    .clip(RoundedCornerShape(50)),
+                onClick = { viewModel.addTaskLog(TaskType.DIAPER) }
             ) {
-                Text(
-                    text = "기저귀",
-                    textAlign = TextAlign.Center,
-                    color = Color.Black
+                Image(
+                    modifier = Modifier
+                        .size(70.dp),
+                    painter = painterResource(id = R.drawable.diaper),
+                    contentDescription = "",
+                    contentScale = ContentScale.Inside
                 )
             }
-            Box(
+            IconButton(
                 modifier = Modifier
                     .weight(1f)
-                    .height(50.dp)
-                    .background(Purple200)
-                    .clickable { viewModel.addTaskLog(TaskType.SLEEP) },
-                contentAlignment = Alignment.Center
-
+                    .clip(RoundedCornerShape(50)),
+                onClick = { viewModel.addTaskLog(TaskType.SLEEP) }
             ) {
-                Text(
-                    text = "수면",
-                    textAlign = TextAlign.Center,
-                    color = Color.Black
+                Image(
+                    modifier = Modifier
+                        .size(70.dp),
+                    painter = painterResource(id = R.drawable.sleeping),
+                    contentDescription = "",
+                    contentScale = ContentScale.Inside
                 )
             }
-            Box(
+            IconButton(
                 modifier = Modifier
                     .weight(1f)
-                    .height(50.dp)
-                    .background(Purple200)
-                    .clickable { viewModel.addTaskLog(TaskType.FOOD) },
-                contentAlignment = Alignment.Center
-
+                    .clip(RoundedCornerShape(50)),
+                onClick = { viewModel.addTaskLog(TaskType.FOOD) }
             ) {
-                Text(
-                    text = "이유식",
-                    textAlign = TextAlign.Center,
-                    color = Color.Black
+                Image(
+                    modifier = Modifier
+                        .size(70.dp),
+                    painter = painterResource(id = R.drawable.eusick),
+                    contentDescription = "",
+                    contentScale = ContentScale.Inside
                 )
             }
         }
