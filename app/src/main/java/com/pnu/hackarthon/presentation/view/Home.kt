@@ -3,6 +3,7 @@ package com.pnu.hackarthon.presentation.view
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -12,25 +13,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.pnu.hackarthon.presentation.component.AppBottomNavigation
 import com.pnu.hackarthon.presentation.navigation.Screen
+import com.pnu.hackarthon.presentation.view.Home.CharacterArea
+import com.pnu.hackarthon.presentation.view.Home.ToDoArea
 import com.pnu.hackarthon.presentation.viewmodel.HomeViewModel
 import com.pnu.hackarthon.ui.theme.HackarthonTheme
 
 @Composable
 fun HomeScreen(
-    navController: NavController
+    navController: NavController,
+    homeViewModel: HomeViewModel,
 ) {
-    HomeBackground {
-        HomeContent {
-            Text(text = "홈 화면")
-            Button(
-                onClick = {
-                    navController.navigate(route= Screen.Splash.route) {
-                        launchSingleTop = true
-                    }
-                }
-            ) {
-                Text(text = "스플래시 화면으로!")
+    Scaffold(
+        bottomBar = { AppBottomNavigation(navController) },
+    ) { innerPadding ->
+        HomeBackground {
+            HomeContent(innerPadding) {
+                CharacterArea()
+                ToDoArea()
             }
         }
     }
@@ -50,12 +51,14 @@ private fun HomeBackground(
 
 @Composable
 private fun HomeContent(
+    innerPadding: PaddingValues,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 30.dp, vertical = 30.dp),
+            .padding(innerPadding)
+            .padding(horizontal = 30.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         content = content,
     )
@@ -66,6 +69,7 @@ private fun HomeContent(
 fun HomeScreenPreview() {
     HackarthonTheme {
         val navController = rememberNavController()
-        HomeScreen(navController = navController)
+        val viewModel = HomeViewModel()
+        HomeScreen(navController = navController, viewModel)
     }
 }
