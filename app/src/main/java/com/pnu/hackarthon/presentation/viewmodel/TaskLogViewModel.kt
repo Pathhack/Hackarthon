@@ -3,6 +3,7 @@ package com.pnu.hackarthon.presentation.viewmodel
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.pnu.hackarthon._enums.SortType
 import com.pnu.hackarthon.domain.model.TaskLog
 import com.pnu.hackarthon.domain.repository.TaskLogRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,6 +18,7 @@ class TaskLogViewModel @Inject constructor(
     private val repositry: TaskLogRepository
 ): ViewModel() {
     val taskLogs = mutableStateOf(emptyList<TaskLog>())
+    var sortType = mutableStateOf(SortType.NEWEST)
 
     init {
         CoroutineScope(Dispatchers.IO).launch {

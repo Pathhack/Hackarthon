@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.pnu.hackarthon.presentation.component.AppBottomNavigation
+import com.pnu.hackarthon.presentation.view.TaskList.SortingOption
 import com.pnu.hackarthon.presentation.view.TaskList.StatisticButton
 import com.pnu.hackarthon.presentation.view.TaskList.TaskLogList
 import com.pnu.hackarthon.presentation.view.TaskList.TopButtons
@@ -32,8 +34,13 @@ fun TaskListScreen(
     ) {
         TaskListBackground {
             TaskListContent(it) {
-                TopButtons()
                 StatisticButton()
+                SortingOption(
+                    onOptionChange = {
+                        viewModel.sortType.value = it
+                    },
+                    currentOption = viewModel.sortType.value
+                )
                 TaskLogList(scrollState = scrollState, viewModel = viewModel)
             }
         }

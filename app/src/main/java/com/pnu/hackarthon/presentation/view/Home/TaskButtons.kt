@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -26,9 +27,11 @@ import com.pnu.hackarthon.ui.theme.Purple200
 
 @Composable
 fun ColumnScope.TaskButtons(
-    viewModel: HomeViewModel
+    viewModel: HomeViewModel,
+    targetPosition: Offset
 ) {
     val itemWidth = UIConstant.WIDTH_ITEM_MEDIUM
+
     Spacer(Modifier.height(30.dp))
     Column(
         modifier = Modifier.weight(1f),

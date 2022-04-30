@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.pnu.hackarthon._enums.SortType
 import com.pnu.hackarthon.presentation.viewmodel.TaskLogViewModel
 
 @Composable
@@ -15,9 +16,12 @@ fun TaskLogList(
     viewModel: TaskLogViewModel,
     scrollState: LazyListState
 ) {
-    val logs = viewModel.taskLogs.value
+    val sortType = viewModel.sortType.value
+    val logs =
+        if (sortType == SortType.NEWEST) viewModel.taskLogs.value
+        else viewModel.taskLogs.value.sortedBy { it.date }
 
-    Spacer(Modifier.height(20.dp))
+    Spacer(Modifier.height(10.dp))
     LazyColumn(
         state = scrollState
     ) {
